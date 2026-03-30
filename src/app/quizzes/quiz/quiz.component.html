@@ -5,7 +5,10 @@
     </h2>
     <p>
         <i class = "fas" [ngClass]="getIconTheme(quiz?.theme)"></i>
-        Themes : {{quiz?.theme}}
+        Theme : {{quiz?.theme}}
+      <br>
+        <i class="fas fa-at"></i>
+        Length : {{quiz.questions.length}}
     </p>
     <button class="button-card" (click)="selectQuiz()">Select</button>
 </div>

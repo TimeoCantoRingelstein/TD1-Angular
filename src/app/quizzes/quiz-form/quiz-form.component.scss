@@ -1,1 +1,13 @@
 @import '../../../styles/card.scss';
+
+h2 {
+  color:$text-color;
+}
+p {
+  color: $text-color-darker
+}
+.input-custom {
+  background-color: $background-color-lighter;
+  border: solid 1px $text-color;
+  color: $text-color;
+}
