@@ -29,4 +29,15 @@ export class QuizComponent implements OnInit {
   selectQuiz() {
     this.quizSelected.emit(true);
   }
+
+  getIconTheme(theme: string | undefined) : string {
+    switch(theme){
+      case "Culture":
+        return "fa-palette";
+      case "Cinema":
+        return "fa-film";
+      default:
+        return "fa-book";
+    }
+  }
 }

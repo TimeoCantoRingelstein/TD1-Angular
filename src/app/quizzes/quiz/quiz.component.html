@@ -3,5 +3,9 @@
         <i class="fab fa-leanpub"></i>
         {{quiz.name}}
     </h2>
+    <p>
+        <i class = "fas" [ngClass]="getIconTheme(quiz?.theme)"></i>
+        Themes : {{quiz?.theme}}
+    </p>
     <button class="button-card" (click)="selectQuiz()">Select</button>
 </div>
