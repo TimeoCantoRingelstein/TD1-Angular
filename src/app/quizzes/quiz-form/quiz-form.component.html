@@ -3,8 +3,14 @@
   <form class="quiz-form" [formGroup]="quizForm">
     <label for="title">
       <p>
-        Title
+        Title <br/>
         <input class="input-custom" type="text" id="name" [formControlName]="'name'">
+      </p>
+    </label>
+    <label for="theme">
+      <p>
+        Theme <br/>
+        <input class="input-custom" type="text" id="theme" [formControlName]="'theme'">
       </p>
     </label>
     <button type="submit" class="button-card" (click)="addQuiz()">Create</button>
