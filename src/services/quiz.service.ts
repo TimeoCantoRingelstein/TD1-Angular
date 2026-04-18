@@ -34,4 +34,11 @@ export class QuizService {
     this.quizzes$.next(this.quizzes);
 
   }
+
+  removeQuiz(quiz:Quiz) {
+    const index = this.quizzes.indexOf(quiz);
+    if (index >-1)
+      this.quizzes.splice(index,1);
+    this.quizzes$.next(this.quizzes);
+  }
 }
