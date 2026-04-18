@@ -11,7 +11,7 @@
       <p>
         Theme <br/>
         <!-- input class="input-custom" type="text" id="theme" [formControlName]="'theme'" -->
-        <select name = "theme-field" id="theme-select" [formControlName]="'theme'">
+        <select class="input-custom" name = "theme-field" id="theme-select" [formControlName]="'theme'">
           <option *ngFor="let currentTheme of QUIZ_THEME_LIST" [value]="currentTheme">{{currentTheme}}</option>
         </select>
       </p>

@@ -2,12 +2,15 @@
 
 h2 {
   color:$text-color;
+  margin-bottom: 10%;
 }
 p {
-  color: $text-color-darker
+  color: $text-color-darker;
+  line-height: 100%;
 }
 .input-custom {
   background-color: $background-color-lighter;
   border: solid 1px $text-color;
   color: $text-color;
+  border-radius: 5px;
 }
