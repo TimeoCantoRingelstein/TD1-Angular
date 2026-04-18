@@ -37,8 +37,10 @@ export class QuizComponent implements OnInit {
     switch(theme){
       case "Culture":
         return "fa-palette";
-      case "Cinema":
+      case "Cinéma":
         return "fa-film";
+      case "Sport":
+        return "fa-bicycle";
       default:
         return "fa-book";
     }

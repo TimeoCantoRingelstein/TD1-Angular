@@ -20,6 +20,8 @@ export class QuizFormComponent implements OnInit {
    */
   public quizForm: FormGroup;
 
+  public QUIZ_THEME_LIST : string[] = ["Cinéma", "Peinture", "Photographie", "Sport"];
+
   constructor(public formBuilder: FormBuilder, public quizService: QuizService) {
     // Form creation
     this.quizForm = this.formBuilder.group({
