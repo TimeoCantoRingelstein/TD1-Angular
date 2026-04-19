@@ -2,11 +2,13 @@ import {RouterModule, Routes} from "@angular/router";
 import {NgModule} from "@angular/core";
 import {QuizListComponent} from "./quizzes/quiz-list/quiz-list.component";
 import {QuizEditComponent} from "./quizzes/quiz-edit/quiz-edit.component";
+import {QuestionListComponent} from "./questions/question-list/question-list.component";
 
 const routes: Routes = [
   {path : "quiz-list", component : QuizListComponent },
   {path : "quiz-edit", redirectTo :  'quiz-list', pathMatch: "full"},
   {path : "quiz-edit/:id", component : QuizEditComponent },
+  {path : "question-list", component : QuestionListComponent },
   {path : "", redirectTo: '/quiz-list', pathMatch: 'full' },
 ]
 

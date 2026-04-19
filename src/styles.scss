@@ -9,3 +9,34 @@ body {
   margin: 0;
   background-color: $background-color;
 }
+
+h1 {
+  color:$text-color;
+}
+
+h2 {
+  color:$text-color;
+  margin-bottom: 10%;
+}
+
+h3 {
+  color: $text-color-darker;
+  line-height: 100%;
+}
+
+h4 {
+  color:$text-color-darker;
+  line-height: 100%;
+}
+
+p {
+  color: $text-color-darker;
+  line-height: 100%;
+}
+
+.input-custom {
+  background-color: $background-color-lighter;
+  border: solid 1px $text-color;
+  color: $text-color;
+  border-radius: 5px;
+}

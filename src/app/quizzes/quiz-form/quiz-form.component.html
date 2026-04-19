@@ -2,19 +2,19 @@
   <h2>Create a new Quiz</h2>
   <form class="quiz-form" [formGroup]="quizForm">
     <label for="title">
-      <p>
+      <h3>
         Title <br/>
         <input class="input-custom" type="text" id="name" [formControlName]="'name'">
-      </p>
+      </h3>
     </label>
     <label for="theme-select">
-      <p>
+      <h3>
         Theme <br/>
         <!-- input class="input-custom" type="text" id="theme" [formControlName]="'theme'" -->
         <select class="input-custom" name = "theme-field" id="theme-select" [formControlName]="'theme'">
           <option *ngFor="let currentTheme of QUIZ_THEME_LIST" [value]="currentTheme">{{currentTheme}}</option>
         </select>
-      </p>
+      </h3>
     </label>
 
     <button type="submit" class="button-card" (click)="addQuiz()">Create</button>
