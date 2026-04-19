@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, Observable, of} from 'rxjs';
+import {BehaviorSubject, map, Observable, of} from 'rxjs';
 import { Quiz } from '../models/quiz.model';
 import { QUIZ_LIST } from '../mocks/quiz-list.mock';
 import {HttpClient} from "@angular/common/http";
@@ -33,7 +33,9 @@ export class QuizService {
 
   getQuizzes() {
     this.http.get<Quiz[]>(this.quizURL).subscribe( (quizzes) => {
-      this.quizzes = quizzes;
+      this.quizzes = quizzes.map((quiz,index) =>{
+        return {...quiz, id:(index+1).toString()};
+      })
       this.quizzes$.next(this.quizzes);
       console.log("Quizs depuis le serveur :", this.quizzes);
     })
@@ -42,6 +44,19 @@ export class QuizService {
   addQuiz(quiz: Quiz) {
     // You need here to update the list of quiz and then update our observable (Subject) with the new list
     // More info: https://angular.io/tutorial/toh-pt6#the-searchterms-rxjs-subject
+    if (this.quizzes.length === 0) {
+      // Si la liste est vide, le premier ID sera "1"
+      quiz.id = '1';
+    } else {
+      // On extrait tous les ID actuels, on les transforme en nombres, et on trouve le max
+      // (ex: si on a les id "1", "2", "5", maxId sera égal à 5)
+      const ids = this.quizzes.map(q => parseInt(q.id, 10));
+      const maxId = Math.max(...ids);
+
+      // On ajoute 1 au maximum, et on le reconvertit en chaîne de caractères (string)
+      quiz.id = (maxId + 1).toString();
+    }
+
     this.quizzes.push(quiz);
     this.quizzes$.next(this.quizzes);
 
