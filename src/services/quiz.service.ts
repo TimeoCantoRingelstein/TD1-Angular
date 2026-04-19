@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import {BehaviorSubject, Observable, of} from 'rxjs';
 import { Quiz } from '../models/quiz.model';
 import { QUIZ_LIST } from '../mocks/quiz-list.mock';
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,18 @@ export class QuizService {
    */
   public quizzes$: BehaviorSubject<Quiz[]> = new BehaviorSubject(QUIZ_LIST);
 
-  constructor() {
+  private quizURL: string = "https://raw.githubusercontent.com/NablaT/starter-quiz-two/master/mock-quiz.json";
+
+  constructor(private http: HttpClient) {
+    this.getQuizzes();
+  }
+
+  getQuizzes() {
+    this.http.get<Quiz[]>(this.quizURL).subscribe( (quizzes) => {
+      this.quizzes = quizzes;
+      this.quizzes$.next(this.quizzes);
+      console.log("Quizs depuis le serveur :", this.quizzes);
+    })
   }
 
   addQuiz(quiz: Quiz) {
@@ -37,8 +49,9 @@ export class QuizService {
 
   removeQuiz(quiz:Quiz) {
     const index = this.quizzes.indexOf(quiz);
-    if (index >-1)
-      this.quizzes.splice(index,1);
+    if (index >-1) {
+      this.quizzes.splice(index, 1);
+    }
     this.quizzes$.next(this.quizzes);
   }
 }
