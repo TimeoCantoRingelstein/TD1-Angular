@@ -40,6 +40,8 @@ export class QuizFormComponent implements OnInit {
     // We retrieve here the quiz object from the quizForm and we cast the type "as Quiz".
     const quizToCreate: Quiz = this.quizForm.getRawValue() as Quiz;
 
+    quizToCreate.creationDate=new Date();
+
     quizToCreate.questions = [];
 
     // Do you need to log your object here in your class? Uncomment the code below
